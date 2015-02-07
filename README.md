@@ -12,7 +12,7 @@ During development, run
 ```
 grunt server
 ```
-so every time any html, css or js file is changed the tests will be run, and if livereload extension installed the page will be refreshed in the browser as well. Url of livereload's project:
+so every time any html, css or js file is changed the tests will be run, and if livereload extension is installed the page will be refreshed in the browser as well. Url of livereload's project:
 
 http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
