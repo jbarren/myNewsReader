@@ -1,4 +1,4 @@
-module.exports = function(grunt){
+module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -12,7 +12,7 @@ module.exports = function(grunt){
       }
     },
     watch: {
-      files: ['html/*.html', 'js/*.js', 'tests/**/*.js'],
+      files: ['app/*.html', 'app/css/*.css', 'app/js/*.js', 'tests/**/*.js'],
       tasks: ['mocha'],
       options: {
         livereload: true
@@ -36,6 +36,6 @@ module.exports = function(grunt){
 
 
   grunt.registerTask('default', ['mocha']);
-  grunt.registerTask('server', "Serve your app", ['connect', 'watch' ]);
+  grunt.registerTask('server', "Serve your app", ['connect', 'watch']);
 
 };
