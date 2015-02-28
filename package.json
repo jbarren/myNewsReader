@@ -21,7 +21,7 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "start": "node backend/express.js",
-    "test": "mocha backend/express.test.js"
+    "start": "node app/express.js",
+    "test": "mocha app/express.test.js"
   }
 }

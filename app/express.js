@@ -2,11 +2,13 @@ var express = require('express'),
   mongoskin = require('mongoskin'),
   bodyParser = require('body-parser')
   logger = require('morgan')
+  path = require('path')
 
 var app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(logger('dev'))
+app.use(logger('dev'));
+app.use(express.static(__dirname + '/public'));
 
 var db = mongoskin.db('mongodb://@localhost:27017/test', {safe:true})
 
@@ -16,7 +18,8 @@ app.param('collectionName', function(req, res, next, collectionName){
 })
 
 app.get('/', function(req, res, next) {
-  res.send('please select a collection, e.g., /collections/messages')
+  //res.send('please select a collection, e.g., /collections/messages')
+    res.sendFile('/index.html');
 })
 
 app.get('/collections/:collectionName', function(req, res, next) {
