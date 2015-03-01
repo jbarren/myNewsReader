@@ -20,15 +20,15 @@ function fetch(feed, callback) {
     feedparser.on('error', function(){
         console.log('Error on feedparser');
     });
-    feedparser.on('end', function(){
-        console.log('Feedparser end');
-    });
     feedparser.on('readable', function () {
         var post;
         while (post = this.read()) {
             console.log(post);
             postList.push(post);
         }
+    });
+    feedparser.on('end', function(){
+        console.log('Feedparser end');
         callback(postList);
     });
 }
