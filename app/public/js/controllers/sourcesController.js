@@ -1,10 +1,15 @@
-var module = angular.module('myNewsReader', []);
-module.controller('sourcesController', function($scope) {
-	$scope.sources = [{
-		"name": "meneame.net",
-		"url": "https://www.meneame.net/rss"
-	}, {
-		"name": "reddit.com",
-		"url": "http://www.reddit.com/.rss"
-	}];
+app.controller('sourcesController', function ($scope, rssService) {
+    //$scope.feeds = [{feedName: 'meneame', articles: []}];
+    $scope.feeds;
+    $scope.feedNameList = ['meneame'];
+    $scope.loadArticles = function(){
+        $scope.feedNameList.forEach(function(feedName, index, array){
+            $scope.feeds = [];
+            var feedObj = {feedName: feedName};
+            rssService.getArticles(feedName, function(articles){
+                feedObj.articles = articles;
+            });
+            $scope.feeds.push(feedObj);
+        });
+    }
 });

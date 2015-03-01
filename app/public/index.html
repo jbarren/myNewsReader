@@ -6,10 +6,13 @@
 </head>
 <body ng-controller="sourcesController">
     <h1>My news reader</h1>
-    <div ng-repeat="source in sources">
-    	<h3>{{source.name}}</h3>
-    	{{source.url}}
+    <button ng-click="loadArticles()">Load articles</button>
+    <div ng-repeat="feed in feeds">
+    	<h3>{{feed.feedName}}</h3>
+        <div>{{feed.articles}}</div>
     </div>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/services/rssService.js"></script></body>
     <script src="js/controllers/sourcesController.js"></script></body>
 </html>
